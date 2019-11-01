@@ -16,18 +16,25 @@ public class CameraControl : MonoBehaviour
     public float minimumY = -60F;
     public float maximumY = 60F;
 
-    private void Start()
-    {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-    }
-
     float rotationY = 0F;
 
     public float moveSpeed = 0.5f;
 
-    void Update()
+    private Rigidbody rb;
+
+    private void Start() 
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        rb = GetComponent<Rigidbody>();
+    }
+
+
+
+    void FixedUpdate()
+    {
+        rb.velocity = Vector3.zero;
+
         if (axes == RotationAxes.MouseXAndY)
         {
             float rotationX = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * sensitivityX;
@@ -51,19 +58,24 @@ public class CameraControl : MonoBehaviour
 
         if (Input.GetKey("w"))
         {
-            transform.Translate(Vector3.forward * moveSpeed);
+            //transform.Translate(Vector3.forward * moveSpeed);
+            rb.MovePosition(rb.position + transform.forward * moveSpeed);
+
         }
         if (Input.GetKey("s"))
         {
-            transform.Translate(-Vector3.forward * moveSpeed);
+            //transform.Translate(-Vector3.forward * moveSpeed);
+            rb.MovePosition(rb.position - transform.forward * moveSpeed);
         }
         if (Input.GetKey("a"))
         {
-            transform.Translate(-Vector3.right * moveSpeed);
+            //transform.Translate(-Vector3.right * moveSpeed);
+            rb.MovePosition(rb.position - transform.right * moveSpeed);
         }
         if (Input.GetKey("d"))
         {
-            transform.Translate(Vector3.right * moveSpeed);
+            //transform.Translate(Vector3.right * moveSpeed);
+            rb.MovePosition(rb.position + transform.right * moveSpeed);
         }
     }
 }
