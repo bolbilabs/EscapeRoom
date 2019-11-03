@@ -6,7 +6,7 @@ public class GameControl : MonoBehaviour
 {
     bool isPlayer = false;
     public CameraControl cameraControl;
-    public PlayerControl playerControl;
+    public CharacterInputController playerControl;
 
     public Rigidbody playerRb;
     public Rigidbody cameraRb;
