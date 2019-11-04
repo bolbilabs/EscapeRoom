@@ -1,15 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameControl : MonoBehaviour
 {
-    bool isPlayer = false;
+    public bool isPlayer = false;
     public CameraControl cameraControl;
     public CharacterInputController playerControl;
 
     public Rigidbody playerRb;
     public Rigidbody cameraRb;
+
+    public float timer = 300f;
+
+    public TextMeshProUGUI timerText;
+    public Animator recordingAnim;
 
     private void Start()
     {
@@ -29,6 +35,7 @@ public class GameControl : MonoBehaviour
                 playerControl.enabled = false;
                 cameraControl.enabled = true;
                 isPlayer = false;
+                recordingAnim.SetBool("isPlayer", false);
             }
             else
             {
@@ -37,7 +44,20 @@ public class GameControl : MonoBehaviour
                 playerControl.enabled = true;
                 cameraControl.enabled = false;
                 isPlayer = true;
+                recordingAnim.SetBool("isPlayer", true);
             }
         }
+
+
+        if (isPlayer)
+        {
+            timer -= Time.deltaTime;
+        }
+
+        string minutes = ((int)timer / 60).ToString("d2");
+        string seconds = ((int)(timer % 60)).ToString("d2");
+        string milliseconds = ((int)((timer - ((int)(timer)))*100)).ToString("d2");
+
+        timerText.text = minutes + ":" + seconds + ":" + milliseconds;
     }
 }

@@ -16,6 +16,8 @@ public class CharacterInputController : MonoBehaviour {
 
     private float forwardSpeedLimit = 1f;
 
+    public GameControl gameControl;
+
 
     public float Forward
     {
@@ -95,8 +97,23 @@ public class CharacterInputController : MonoBehaviour {
         Turn = filteredTurnInput;
 
 
-        //Capture "fire" button for action event
-        Action = Input.GetButtonDown("Fire1");
+
 
 	}
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Button")
+        {
+            if (gameControl.isPlayer)
+            {
+                //Capture "fire" button for action event
+                Action = Input.GetKey("f");
+                if (Input.GetKeyDown("f"))
+                {
+                    other.GetComponentInParent<Animator>().SetBool("isPressed", true);
+                }
+            }
+        }
+    }
 }
