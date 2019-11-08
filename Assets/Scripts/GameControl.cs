@@ -17,6 +17,29 @@ public class GameControl : MonoBehaviour
     public TextMeshProUGUI timerText;
     public Animator recordingAnim;
 
+    public static GameControl instance;
+    public bool isPersistant;
+
+    public virtual void Awake()
+    {
+        if (isPersistant)
+        {
+            if (!instance)
+            {
+                instance = this as GameControl;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            instance = this as GameControl;
+        }
+    }
+
     private void Start()
     {
         playerRb.constraints = RigidbodyConstraints.FreezeAll;
