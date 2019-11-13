@@ -16079,6 +16079,7 @@ MonoBehaviour:
   animationSpeed: 1.3
   rootMovementSpeed: 1.3
   rootTurnSpeed: 1.5
+  jumpHeight: 350
   buttonObject: {fileID: 1166933783}
 --- !u!114 &2137381294
 MonoBehaviour:
@@ -16104,7 +16105,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2137381291}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: c313fc731c5564dd6bdc37d122dcb8d6, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.35

@@ -35,3 +35,9 @@ sysinfo.txt
 *.apk
 *.unitypackage
 .DS_Store
+Library/assetDatabase3
+Library/SceneVisibilityState.asset
+Library/ScriptAssemblies/BuiltinAssemblies.stamp
+Library/StateCache/Hierarchy/6c185d-mainStage.json
+Library/StateCache/Hierarchy/9c311f-mainStage.json
+Library/StateCache/SceneView/7e3e6c-mainStage.json
