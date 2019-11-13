@@ -25,10 +25,14 @@ public class RootMotionControlScript : MonoBehaviour
     public float animationSpeed = 1.0f;
     public float rootMovementSpeed = 1.0f;
     public float rootTurnSpeed = 1.0f;
+    public float jumpHeight = 100.0f;
 
     private int groundContactCount = 0;
 
     public GameObject buttonObject;
+
+    private bool once = false;
+    private float lastInputForward;
 
     public bool IsGrounded
     {
@@ -98,14 +102,30 @@ public class RootMotionControlScript : MonoBehaviour
         //Therefore, an additional raycast approach is used to check for close ground
         bool isGrounded = IsGrounded || CharacterCommon.CheckGroundNear(this.transform.position, jumpableGroundNormalMaxAngle, 0.1f, 1f, out closeToJumpableGround);
 
-        anim.SetBool("jump", true);
-        anim.SetFloat("velx", inputTurn);	
-        anim.SetFloat("vely", inputForward);
-        anim.SetBool("isFalling", !isGrounded);
-        anim.SetBool("doButtonPress", inputAction);
-        anim.speed = animationSpeed;
+        //anim.SetBool("jump", true);
 
-        if(inputAction)
+        if (!isGrounded)
+        {
+
+            anim.SetFloat("vely", lastInputForward);
+        }
+
+
+        if (isGrounded)
+        {
+            anim.SetFloat("velx", inputTurn);
+            anim.SetFloat("vely", inputForward);
+            lastInputForward = inputForward;
+            anim.SetBool("doButtonPress", inputAction);
+            anim.speed = animationSpeed;
+        }
+
+        if (jump && closeToJumpableGround)
+        {
+            rbody.AddForce(new Vector3(0, jumpHeight, 0), ForceMode.Impulse);
+        }
+
+        if (inputAction)
             Debug.Log("Action pressed");
 
     }
@@ -145,16 +165,16 @@ public class RootMotionControlScript : MonoBehaviour
 
         bool isGrounded = IsGrounded || CharacterCommon.CheckGroundNear(this.transform.position, jumpableGroundNormalMaxAngle, 0.1f, 1f, out closeToJumpableGround);
 
-        if (isGrounded)
-        {
+        //if (isGrounded)
+        //{
          	//use root motion as is if on the ground		
             newRootPosition = anim.rootPosition;
-        }
-        else
-        {
-            //Simple trick to keep model from climbing other rigidbodies that aren't the ground
-            newRootPosition = new Vector3(anim.rootPosition.x, this.transform.position.y, anim.rootPosition.z);
-        }
+        //}
+        //else
+        //{
+        //    //Simple trick to keep model from climbing other rigidbodies that aren't the ground
+        //    newRootPosition = new Vector3(anim.rootPosition.x, this.transform.position.y, anim.rootPosition.z);
+        //}
 
         //use rotational root motion as is
         newRootRotation = anim.rootRotation;
