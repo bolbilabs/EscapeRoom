@@ -16,7 +16,7 @@ public class CameraControl : MonoBehaviour
     public float minimumY = -60F;
     public float maximumY = 60F;
 
-    float rotationY = 0F;
+    public float rotationY = 0F;
 
     public float moveSpeed = 0.5f;
 
@@ -24,8 +24,10 @@ public class CameraControl : MonoBehaviour
 
     private void Start() 
     {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        rotationY = transform.rotation.x;
+        transform.localEulerAngles = new Vector3(-rotationY, transform.localEulerAngles.y, 0);
         rb = GetComponent<Rigidbody>();
     }
 

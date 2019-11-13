@@ -80,6 +80,7 @@ public class RootMotionControlScript : MonoBehaviour
         float inputForward=0f;
         float inputTurn=0f;
         bool inputAction = false;
+        bool jump = false;
         // input is polled in the Update() step, not FixedUpdate()
         // Therefore, you should ONLY use input state that is NOT event-based in FixedUpdate()
         // Input events should be handled in Update(), and possibly passed on to FixedUpdate() through 
@@ -89,15 +90,15 @@ public class RootMotionControlScript : MonoBehaviour
             inputForward = cinput.Forward;
             inputTurn = cinput.Turn;
             inputAction = cinput.Action;
-                
+            jump = cinput.Jump;
         }
 
         //onCollisionXXX() doesn't always work for checking if the character is grounded from a playability perspective
         //Uneven terrain can cause the player to become technically airborne, but so close the player thinks they're touching ground.
         //Therefore, an additional raycast approach is used to check for close ground
         bool isGrounded = IsGrounded || CharacterCommon.CheckGroundNear(this.transform.position, jumpableGroundNormalMaxAngle, 0.1f, 1f, out closeToJumpableGround);
-                                                    
-       
+
+        anim.SetBool("jump", true);
         anim.SetFloat("velx", inputTurn);	
         anim.SetFloat("vely", inputForward);
         anim.SetBool("isFalling", !isGrounded);
@@ -165,7 +166,6 @@ public class RootMotionControlScript : MonoBehaviour
 
         this.transform.position = newRootPosition;
         this.transform.rotation = newRootRotation;
-
     }
 
     private void OnAnimatorIK()

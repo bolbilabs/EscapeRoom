@@ -37,10 +37,16 @@ public class CharacterInputController : MonoBehaviour {
         private set;
     }
 
+    public bool Jump
+    {
+        get;
+        private set;
+    }
 
-        
 
-	void Update () {
+
+
+    void Update () {
 		
         //GetAxisRaw() so we can do filtering here instead of the InputManager
         float h = Input.GetAxisRaw("Horizontal");// setup h variable as our horizontal input axis
@@ -54,6 +60,15 @@ public class CharacterInputController : MonoBehaviour {
             h = h * Mathf.Sqrt(1f - 0.5f * v * v);
             v = v * Mathf.Sqrt(1f - 0.5f * h * h);
 
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Jump = true;
+        }
+        else
+        {
+            Jump = false;
         }
 
 

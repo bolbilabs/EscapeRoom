@@ -20,6 +20,8 @@ public class GameControl : MonoBehaviour
     public static GameControl instance;
     public bool isPersistant;
 
+    public DialogueManager dialogueManager;
+
     public virtual void Awake()
     {
         if (isPersistant)
@@ -42,32 +44,39 @@ public class GameControl : MonoBehaviour
 
     private void Start()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         playerRb.constraints = RigidbodyConstraints.FreezeAll;
         cameraRb.constraints = RigidbodyConstraints.FreezeRotation;
+        dialogueManager = GetComponent<DialogueManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Changes control from camera to the player
-        if (Input.GetKeyDown(KeyCode.LeftShift)) {
-            if (isPlayer)
+        if (!dialogueManager.inCutscene)
+        {
+            // Changes control from camera to the player
+            if (Input.GetKeyDown(KeyCode.LeftShift))
             {
-                playerRb.constraints = RigidbodyConstraints.FreezeAll;
-                cameraRb.constraints = RigidbodyConstraints.FreezeRotation;
-                playerControl.enabled = false;
-                cameraControl.enabled = true;
-                isPlayer = false;
-                recordingAnim.SetBool("isPlayer", false);
-            }
-            else
-            {
-                playerRb.constraints = RigidbodyConstraints.FreezeRotation;
-                cameraRb.constraints = RigidbodyConstraints.FreezeAll;
-                playerControl.enabled = true;
-                cameraControl.enabled = false;
-                isPlayer = true;
-                recordingAnim.SetBool("isPlayer", true);
+                if (isPlayer)
+                {
+                    playerRb.constraints = RigidbodyConstraints.FreezeAll;
+                    cameraRb.constraints = RigidbodyConstraints.FreezeRotation;
+                    playerControl.enabled = false;
+                    cameraControl.enabled = true;
+                    isPlayer = false;
+                    recordingAnim.SetBool("isPlayer", false);
+                }
+                else
+                {
+                    playerRb.constraints = RigidbodyConstraints.FreezeRotation;
+                    cameraRb.constraints = RigidbodyConstraints.FreezeAll;
+                    playerControl.enabled = true;
+                    cameraControl.enabled = false;
+                    isPlayer = true;
+                    recordingAnim.SetBool("isPlayer", true);
+                }
             }
         }
 
