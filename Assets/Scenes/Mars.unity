@@ -885,7 +885,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: be0f8d9295aa7bf46bf3696686de242c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12
+      value: -14.03
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: be0f8d9295aa7bf46bf3696686de242c,
         type: 3}
@@ -895,7 +895,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: be0f8d9295aa7bf46bf3696686de242c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5
+      value: 9.37
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: be0f8d9295aa7bf46bf3696686de242c,
         type: 3}
@@ -994,7 +994,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: be0f8d9295aa7bf46bf3696686de242c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10
+      value: -9.11
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: be0f8d9295aa7bf46bf3696686de242c,
         type: 3}
@@ -1004,7 +1004,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: be0f8d9295aa7bf46bf3696686de242c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 3.73
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: be0f8d9295aa7bf46bf3696686de242c,
         type: 3}
@@ -1290,7 +1290,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: be0f8d9295aa7bf46bf3696686de242c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14
+      value: -11.07
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: be0f8d9295aa7bf46bf3696686de242c,
         type: 3}
@@ -1300,7 +1300,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: be0f8d9295aa7bf46bf3696686de242c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 6.59
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: be0f8d9295aa7bf46bf3696686de242c,
         type: 3}
