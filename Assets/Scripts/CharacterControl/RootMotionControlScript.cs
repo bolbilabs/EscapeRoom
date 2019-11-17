@@ -34,6 +34,8 @@ public class RootMotionControlScript : MonoBehaviour
     private bool once = false;
     private float lastInputForward;
 
+    private Vector3 lastGroundPosition;
+
     public bool IsGrounded
     {
         get
@@ -186,6 +188,11 @@ public class RootMotionControlScript : MonoBehaviour
 
         this.transform.position = newRootPosition;
         this.transform.rotation = newRootRotation;
+
+        if (isGrounded)
+        {
+            lastGroundPosition = transform.position;
+        }
     }
 
     private void OnAnimatorIK()
@@ -211,6 +218,11 @@ public class RootMotionControlScript : MonoBehaviour
                 anim.SetLookAtWeight(0);
             }
         }
+    }
+
+    public void SnapToGround()
+    {
+        transform.position = lastGroundPosition;
     }
 
 }

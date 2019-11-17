@@ -81,7 +81,7 @@ public class GameControl : MonoBehaviour
         }
 
 
-        if (isPlayer)
+        if (isPlayer && !dialogueManager.inCutscene)
         {
             timer -= Time.deltaTime;
         }

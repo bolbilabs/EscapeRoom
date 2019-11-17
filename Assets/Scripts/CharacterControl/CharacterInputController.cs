@@ -18,6 +18,10 @@ public class CharacterInputController : MonoBehaviour {
 
     public GameControl gameControl;
 
+    public DialogueManager dialogueManager;
+
+    public RootMotionControlScript rootMotion;
+
 
     public float Forward
     {
@@ -129,6 +133,23 @@ public class CharacterInputController : MonoBehaviour {
                     other.GetComponentInParent<Animator>().SetBool("isPressed", true);
                 }
             }
+        }
+        if (other.tag == "Writing")
+        {
+            if (gameControl.isPlayer)
+            {
+                //Capture "fire" button for action event
+                Action = Input.GetKey("f");
+                if (!dialogueManager.inCutscene && Input.GetKeyDown("f"))
+                {
+                    other.GetComponent<DialogueTrigger>().TriggerDialogue();
+
+                }
+            }
+        }
+        if (other.tag == "Bound")
+        {
+            rootMotion.SnapToGround();
         }
     }
 }

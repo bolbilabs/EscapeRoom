@@ -10518,8 +10518,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 542201919}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.800194, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 0.5, z: 10}
+  m_LocalPosition: {x: -9.769, y: 0, z: -0.034}
+  m_LocalScale: {x: 9.84055, y: 0.5, z: 9.303236}
   m_Children: []
   m_Father: {fileID: 1867577696}
   m_RootOrder: 0
@@ -10742,6 +10742,50 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 711427213}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &722958312
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 722958313}
+  - component: {fileID: 722958314}
+  m_Layer: 0
+  m_Name: Bound
+  m_TagString: Bound
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &722958313
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 722958312}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 8.63}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1229871858}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &722958314
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 722958312}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 58.580193, y: 13.898749, z: 24.202}
+  m_Center: {x: 12.652035, y: 2.5665393, z: 11.307627}
 --- !u!1001 &779030664
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11111,6 +11155,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: book
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: c2e3c559187aa4684ac8ce3d88161e6e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Writing
+      objectReference: {fileID: 0}
+    - target: {fileID: 6934840374383866608, guid: c2e3c559187aa4684ac8ce3d88161e6e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Writing
+      objectReference: {fileID: 0}
+    - target: {fileID: -8052994932809076077, guid: c2e3c559187aa4684ac8ce3d88161e6e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Writing
+      objectReference: {fileID: 0}
+    - target: {fileID: -4473984409997532297, guid: c2e3c559187aa4684ac8ce3d88161e6e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Writing
+      objectReference: {fileID: 0}
+    - target: {fileID: 9101430577481724397, guid: c2e3c559187aa4684ac8ce3d88161e6e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Writing
+      objectReference: {fileID: 0}
+    - target: {fileID: -8626751840527039810, guid: c2e3c559187aa4684ac8ce3d88161e6e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Writing
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: c2e3c559187aa4684ac8ce3d88161e6e,
         type: 3}
@@ -11854,6 +11928,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1229434380}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1229871857
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1229871858}
+  m_Layer: 0
+  m_Name: Bounds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1229871858
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229871857}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -31.64, y: 11.03, z: 0.91}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 722958313}
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1275229168
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13539,6 +13644,36 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 882401240}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1825390695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825390693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d024fa6e7036b4ccebf7341df2569bf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    sentences:
+    - Press the F key to advance text and interact with and read objects in the room!
+    - Press the shift key to shift between piloting the camera and moving the player!
+    - In camera mode, you can move around with WASD...
+    - And change the camera angle using the mouse.
+    - In player mode, you can move with WASD, jump with spacebar, and interact using
+      the F key.
+    - When you are moving the player, the camera records your sweet action stuntz.
+    - Try to be cinematic about where you place the camera so you can get the views.
+    - But watch out! You've only got five minutes of recording space.
+    - So, make sure that you control the player as efficienctly as possible.
+    - Got it? Move the camera into a good position...
+    - Press shift to start recording, and quickly solve the puzzles as the player!
+    - This concludes my case study about various instructions for a multitude of video
+      games.
+    - -R.H. Finkleburg
+    scriptTriggers: []
 --- !u!64 &1825390697
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -13569,6 +13704,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!135 &1825390699
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825390693}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 15.52
+  m_Center: {x: -0.000061035156, y: -0.000000119209275, z: 0.00000047683713}
 --- !u!1 &1867577695
 GameObject:
   m_ObjectHideFlags: 0
@@ -14025,7 +14173,7 @@ GameObject:
   - component: {fileID: 2089957827}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Writing
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16098,6 +16246,22 @@ MonoBehaviour:
   forwardInputFilter: 5
   turnInputFilter: 5
   gameControl: {fileID: 1352877201}
+  dialogueManager: {fileID: 1352877203}
+  rootMotion: {fileID: 2137381293}
+--- !u!136 &2137381295
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137381291}
+  m_Material: {fileID: 13400000, guid: c427ec51c79d34d1c8ba2856018f3e1b, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.24
+  m_Height: 0.81239605
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.38208914, z: 0}
 --- !u!136 &2137381296
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -16109,9 +16273,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.35
-  m_Height: 2
+  m_Height: 1.5911188
   m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 1.2044406, z: 0}
 --- !u!54 &2137381297
 Rigidbody:
   m_ObjectHideFlags: 0
