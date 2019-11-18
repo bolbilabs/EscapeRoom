@@ -34,7 +34,7 @@ public class RootMotionControlScript : MonoBehaviour
     private bool once = false;
     private float lastInputForward;
 
-    private Vector3 lastGroundPosition;
+    public Vector3 lastGroundPosition;
 
     public bool IsGrounded
     {
@@ -189,10 +189,35 @@ public class RootMotionControlScript : MonoBehaviour
         this.transform.position = newRootPosition;
         this.transform.rotation = newRootRotation;
 
-        if (isGrounded)
-        {
-            lastGroundPosition = transform.position;
-        }
+
+        //float totalRayLen = 1f + 0.1f;
+
+        //Ray ray = new Ray(this.transform.position + Vector3.up * 1f, Vector3.down);
+
+        //int layerMask = 1 << LayerMask.NameToLayer("Default");
+
+        //RaycastHit[] hits = Physics.RaycastAll(ray, totalRayLen, layerMask);
+
+        //RaycastHit boundHit = new RaycastHit();
+        //bool isHit = false;
+
+        //foreach (RaycastHit hit in hits)
+        //{
+
+        //    if (hit.collider.gameObject.CompareTag("Rebound"))
+        //    {
+           
+        //        boundHit = hit;
+        //        isHit = true;
+        //        break; //only need to find the ground once
+        //    }
+
+        //}
+
+        //if (isHit)
+        //{
+        //    lastGroundPosition = boundHit.point;
+        //}
     }
 
     private void OnAnimatorIK()
@@ -223,6 +248,14 @@ public class RootMotionControlScript : MonoBehaviour
     public void SnapToGround()
     {
         transform.position = lastGroundPosition;
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Rebound")
+        {
+            lastGroundPosition = other.ClosestPoint(transform.position);
+        }
     }
 
 }

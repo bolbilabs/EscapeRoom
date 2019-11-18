@@ -120,7 +120,7 @@ public class DialogueManager : MonoBehaviour
 
         scriptTriggers = dialogue.scriptTriggers;
 
-        DisplayNextSentence();
+        //DisplayNextSentence();
     }
 
     public void DisplayNextSentence()

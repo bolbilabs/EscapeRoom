@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class GameControl : MonoBehaviour
@@ -8,11 +10,12 @@ public class GameControl : MonoBehaviour
     public bool isPlayer = false;
     public CameraControl cameraControl;
     public CharacterInputController playerControl;
+    public Animator playerAnim;
 
     public Rigidbody playerRb;
     public Rigidbody cameraRb;
 
-    public float timer = 300f;
+    public static float timer = 300f;
 
     public TextMeshProUGUI timerText;
     public Animator recordingAnim;
@@ -49,11 +52,34 @@ public class GameControl : MonoBehaviour
         playerRb.constraints = RigidbodyConstraints.FreezeAll;
         cameraRb.constraints = RigidbodyConstraints.FreezeRotation;
         dialogueManager = GetComponent<DialogueManager>();
+        cameraControl = Camera.main.GetComponent<CameraControl>();
+        cameraRb = Camera.main.GetComponent<Rigidbody>();
+        GameObject player = GameObject.FindWithTag("Player");
+        playerControl = player.GetComponent<CharacterInputController>();
+        playerRb = player.GetComponent<Rigidbody>();
+        timerText = GameObject.FindWithTag("Timer").GetComponent<TextMeshProUGUI>();
+        recordingAnim = GameObject.FindWithTag("Record").GetComponent<Animator>();
+        playerAnim = player.GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        cameraControl = Camera.main.GetComponent<CameraControl>();
+        cameraRb = Camera.main.GetComponent<Rigidbody>();
+        GameObject player = GameObject.FindWithTag("Player");
+        playerControl = player.GetComponent<CharacterInputController>();
+        playerRb = player.GetComponent<Rigidbody>();
+        timerText = GameObject.FindWithTag("Timer").GetComponent<TextMeshProUGUI>();
+        recordingAnim = GameObject.FindWithTag("Record").GetComponent<Animator>();
+        playerAnim = player.GetComponent<Animator>();
+
+        if (Input.GetKeyDown(KeyCode.R)) {
+            isPlayer = false;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
+
         if (!dialogueManager.inCutscene)
         {
             // Changes control from camera to the player
@@ -61,12 +87,13 @@ public class GameControl : MonoBehaviour
             {
                 if (isPlayer)
                 {
-                    playerRb.constraints = RigidbodyConstraints.FreezeAll;
+                    playerRb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
                     cameraRb.constraints = RigidbodyConstraints.FreezeRotation;
                     playerControl.enabled = false;
                     cameraControl.enabled = true;
                     isPlayer = false;
                     recordingAnim.SetBool("isPlayer", false);
+                    playerAnim.SetBool("isFalling", true);
                 }
                 else
                 {
@@ -76,6 +103,8 @@ public class GameControl : MonoBehaviour
                     cameraControl.enabled = false;
                     isPlayer = true;
                     recordingAnim.SetBool("isPlayer", true);
+                    playerAnim.SetBool("isFalling", false);
+
                 }
             }
         }
@@ -93,3 +122,4 @@ public class GameControl : MonoBehaviour
         timerText.text = minutes + ":" + seconds + ":" + milliseconds;
     }
 }
+

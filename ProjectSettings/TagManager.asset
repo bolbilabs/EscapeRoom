@@ -8,6 +8,9 @@ TagManager:
   - Button
   - Writing
   - Bound
+  - Timer
+  - Record
+  - Rebound
   layers:
   - Default
   - TransparentFX
