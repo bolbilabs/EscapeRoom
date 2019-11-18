@@ -76,6 +76,7 @@ public class GameControl : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R)) {
             isPlayer = false;
+            dialogueManager.inCutscene = false;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 

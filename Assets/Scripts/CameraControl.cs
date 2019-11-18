@@ -79,5 +79,16 @@ public class CameraControl : MonoBehaviour
             //transform.Translate(Vector3.right * moveSpeed);
             rb.MovePosition(rb.position + transform.right * moveSpeed);
         }
+
+        if (Input.GetKey("e"))
+        {
+            //transform.Translate(Vector3.right * moveSpeed);
+            rb.MovePosition(rb.position + Vector3.up * moveSpeed);
+        }
+        if (Input.GetKey("q"))
+        {
+            //transform.Translate(Vector3.right * moveSpeed);
+            rb.MovePosition(rb.position + -Vector3.up * moveSpeed);
+        }
     }
 }
