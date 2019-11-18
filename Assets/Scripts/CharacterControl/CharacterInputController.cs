@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharacterInputController : MonoBehaviour {
 
@@ -150,6 +151,14 @@ public class CharacterInputController : MonoBehaviour {
         if (other.tag == "Bound")
         {
             rootMotion.SnapToGround();
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Exit")
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 }

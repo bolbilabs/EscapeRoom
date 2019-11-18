@@ -122,7 +122,7 @@ public class RootMotionControlScript : MonoBehaviour
             anim.speed = animationSpeed;
         }
 
-        if (jump && closeToJumpableGround)
+        if (jump && isGrounded)
         {
             rbody.AddForce(new Vector3(0, jumpHeight, 0), ForceMode.Impulse);
         }
@@ -256,6 +256,7 @@ public class RootMotionControlScript : MonoBehaviour
         {
             lastGroundPosition = other.ClosestPoint(transform.position);
         }
+
     }
 
 }

@@ -11,6 +11,7 @@ TagManager:
   - Timer
   - Record
   - Rebound
+  - Exit
   layers:
   - Default
   - TransparentFX

@@ -87,13 +87,13 @@ public class GameControl : MonoBehaviour
             {
                 if (isPlayer)
                 {
-                    playerRb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
+                    playerRb.constraints = RigidbodyConstraints.FreezeRotation;
                     cameraRb.constraints = RigidbodyConstraints.FreezeRotation;
                     playerControl.enabled = false;
                     cameraControl.enabled = true;
                     isPlayer = false;
                     recordingAnim.SetBool("isPlayer", false);
-                    playerAnim.SetBool("isFalling", true);
+                    //playerAnim.SetBool("isFalling", true);
                 }
                 else
                 {
@@ -103,7 +103,7 @@ public class GameControl : MonoBehaviour
                     cameraControl.enabled = false;
                     isPlayer = true;
                     recordingAnim.SetBool("isPlayer", true);
-                    playerAnim.SetBool("isFalling", false);
+                    //playerAnim.SetBool("isFalling", false);
 
                 }
             }
