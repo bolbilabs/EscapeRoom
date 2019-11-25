@@ -12,6 +12,8 @@ TagManager:
   - Record
   - Rebound
   - Exit
+  - Reset
+  - text
   layers:
   - Default
   - TransparentFX

@@ -71,12 +71,12 @@ public class CharacterManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (Input.GetKeyUp(KeyCode.T))
-        {
-            Debug.Log("Character toggled");
-            toggleCharacter();
+        //if (Input.GetKeyUp(KeyCode.T))
+        //{
+        //    Debug.Log("Character toggled");
+        //    toggleCharacter();
 
-        }
+        //}
 		
 	}
 }

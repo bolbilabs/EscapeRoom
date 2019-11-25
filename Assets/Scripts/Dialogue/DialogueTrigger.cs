@@ -10,7 +10,7 @@ public class DialogueTrigger : MonoBehaviour
     {
         //if (!GameControl.isFrozen)
         //{
-            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+            GameControl.GetInstance().dialogueManager.StartDialogue(dialogue);
         //}
     }
 }
