@@ -23,6 +23,12 @@ public class CharacterInputController : MonoBehaviour {
 
     public RootMotionControlScript rootMotion;
 
+    private void Awake()
+    {
+        gameControl = GameControl.GetInstance();
+        dialogueManager = GameControl.GetInstance().dialogueManager;
+    }
+
 
     public float Forward
     {
@@ -143,8 +149,8 @@ public class CharacterInputController : MonoBehaviour {
                 Action = Input.GetKey("f");
                 if (!dialogueManager.inCutscene && Input.GetKeyDown("f"))
                 {
+                    Debug.Log("READ");
                     other.GetComponent<DialogueTrigger>().TriggerDialogue();
-
                 }
             }
         }

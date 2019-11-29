@@ -45,6 +45,11 @@ public class GameControl : MonoBehaviour
         }
     }
 
+    public static GameControl GetInstance()
+    {
+        return instance;
+    }
+
     private void Start()
     {
         Cursor.visible = false;
@@ -75,9 +80,7 @@ public class GameControl : MonoBehaviour
         playerAnim = player.GetComponent<Animator>();
 
         if (Input.GetKeyDown(KeyCode.R)) {
-            isPlayer = false;
-            dialogueManager.inCutscene = false;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            ReloadLevel();
         }
 
 
@@ -121,6 +124,13 @@ public class GameControl : MonoBehaviour
         string milliseconds = ((int)((timer - ((int)(timer)))*100)).ToString("d2");
 
         timerText.text = minutes + ":" + seconds + ":" + milliseconds;
+    }
+
+    public void ReloadLevel()
+    {
+        isPlayer = false;
+        dialogueManager.inCutscene = false;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
 

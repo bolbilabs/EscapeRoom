@@ -257,6 +257,13 @@ public class RootMotionControlScript : MonoBehaviour
             lastGroundPosition = other.ClosestPoint(transform.position);
         }
 
+        if (other.tag == "Reset")
+        {
+            GameControl.GetInstance().ReloadLevel();
+        }
+
     }
+
+
 
 }

@@ -71,11 +71,16 @@ public class DialogueManager : MonoBehaviour
 
     void Start()
     {
-        //windowAnim = shortDialogueText.transform.parent.GetComponent<Animator>();
+        windowAnim = GameObject.FindWithTag("text").GetComponent<Animator>();
     }
 
     public void StartDialogue (Dialogue dialogue)
     {
+        windowAnim = GameObject.FindWithTag("text").GetComponent<Animator>();
+        dialogueText = GameObject.FindWithTag("text").GetComponent<TextMeshProUGUI>();
+        characterInput = GameObject.FindWithTag("Player").GetComponent<CharacterInputController>();
+        cameraInput = Camera.main.gameObject.GetComponent<CameraControl>();
+
 
         inCutscene = true;
 
