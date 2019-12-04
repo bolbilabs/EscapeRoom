@@ -97,7 +97,7 @@ public class GameControl : MonoBehaviour
                     cameraControl.enabled = true;
                     isPlayer = false;
                     recordingAnim.SetBool("isPlayer", false);
-                    //playerAnim.SetBool("isFalling", true);
+                    playerAnim.SetBool("isCamera", true);
                 }
                 else
                 {
@@ -107,7 +107,7 @@ public class GameControl : MonoBehaviour
                     cameraControl.enabled = false;
                     isPlayer = true;
                     recordingAnim.SetBool("isPlayer", true);
-                    //playerAnim.SetBool("isFalling", false);
+                    playerAnim.SetBool("isCamera", false);
 
                 }
             }
