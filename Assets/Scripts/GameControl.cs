@@ -11,6 +11,8 @@ public class GameControl : MonoBehaviour
     public CameraControl cameraControl;
     public CharacterInputController playerControl;
     public Animator playerAnim;
+    public Animator controllerAnim;
+
 
     public Rigidbody playerRb;
     public Rigidbody cameraRb;
@@ -65,6 +67,8 @@ public class GameControl : MonoBehaviour
         timerText = GameObject.FindWithTag("Timer").GetComponent<TextMeshProUGUI>();
         recordingAnim = GameObject.FindWithTag("Record").GetComponent<Animator>();
         playerAnim = player.GetComponent<Animator>();
+        controllerAnim = GameObject.FindWithTag("Magic").GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
@@ -78,6 +82,8 @@ public class GameControl : MonoBehaviour
         timerText = GameObject.FindWithTag("Timer").GetComponent<TextMeshProUGUI>();
         recordingAnim = GameObject.FindWithTag("Record").GetComponent<Animator>();
         playerAnim = player.GetComponent<Animator>();
+        controllerAnim = GameObject.FindWithTag("Magic").GetComponent<Animator>();
+
 
         if (Input.GetKeyDown(KeyCode.R)) {
             ReloadLevel();
@@ -98,6 +104,8 @@ public class GameControl : MonoBehaviour
                     isPlayer = false;
                     recordingAnim.SetBool("isPlayer", false);
                     playerAnim.SetBool("isCamera", true);
+                    controllerAnim.SetBool("isCamera", true);
+
                 }
                 else
                 {
@@ -108,6 +116,8 @@ public class GameControl : MonoBehaviour
                     isPlayer = true;
                     recordingAnim.SetBool("isPlayer", true);
                     playerAnim.SetBool("isCamera", false);
+                    controllerAnim.SetBool("isCamera", false);
+
 
                 }
             }

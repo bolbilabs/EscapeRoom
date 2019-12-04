@@ -14,6 +14,7 @@ TagManager:
   - Exit
   - Reset
   - text
+  - Magic
   layers:
   - Default
   - TransparentFX

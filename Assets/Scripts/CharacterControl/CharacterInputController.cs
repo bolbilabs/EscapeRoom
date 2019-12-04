@@ -164,6 +164,7 @@ public class CharacterInputController : MonoBehaviour {
     {
         if (other.tag == "Exit")
         {
+            gameControl.isPlayer = false;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
