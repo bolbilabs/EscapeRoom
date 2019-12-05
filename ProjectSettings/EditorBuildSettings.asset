@@ -9,9 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Library.unity
     guid: e5c5c6511e4664971b22192d96b69e87
   - enabled: 1
-    path: Assets/Scenes/Mars2.unity
-    guid: 1bdf6ff0a84a44fb7a1fc78071e61084
-  - enabled: 1
     path: Assets/Scenes/Neptune.unity
     guid: edfe51f4c6b674440aebe8f21a7a16f0
+  - enabled: 1
+    path: Assets/Scenes/Mars2.unity
+    guid: 1bdf6ff0a84a44fb7a1fc78071e61084
   m_configObjects: {}

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LillyColoring : MonoBehaviour
 {
-    [SerializeField] private Animator anim;
+    public Animator anim;
 
     private void OnTriggerEnter(Collider c) {
         if (c.CompareTag("Player")) {
