@@ -17,7 +17,7 @@ public class GameControl : MonoBehaviour
     public Rigidbody playerRb;
     public Rigidbody cameraRb;
 
-    public static float timer = 300f;
+    public static float gameTimer = 1200f;
 
     public TextMeshProUGUI timerText;
     public Animator recordingAnim;
@@ -126,12 +126,12 @@ public class GameControl : MonoBehaviour
 
         if (isPlayer && !dialogueManager.inCutscene)
         {
-            timer -= Time.deltaTime;
+            gameTimer -= Time.deltaTime;
         }
 
-        string minutes = ((int)timer / 60).ToString("d2");
-        string seconds = ((int)(timer % 60)).ToString("d2");
-        string milliseconds = ((int)((timer - ((int)(timer)))*100)).ToString("d2");
+        string minutes = ((int)gameTimer / 60).ToString("d2");
+        string seconds = ((int)(gameTimer % 60)).ToString("d2");
+        string milliseconds = ((int)((gameTimer - ((int)(gameTimer)))*100)).ToString("d2");
 
         timerText.text = minutes + ":" + seconds + ":" + milliseconds;
     }
