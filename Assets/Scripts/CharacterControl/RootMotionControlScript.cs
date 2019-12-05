@@ -247,14 +247,21 @@ public class RootMotionControlScript : MonoBehaviour
 
     public void SnapToGround()
     {
+       
         transform.position = lastGroundPosition;
+
     }
 
     private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Rebound")
         {
+            anim.SetFloat("velx", 0);
+            anim.SetFloat("vely", 0);
             lastGroundPosition = other.ClosestPoint(transform.position);
+            rbody.velocity = new Vector3(0,rbody.velocity.y,0);
+            lastInputForward = 0.0f;
+
         }
 
         if (other.tag == "Reset")
