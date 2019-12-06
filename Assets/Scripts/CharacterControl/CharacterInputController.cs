@@ -23,6 +23,10 @@ public class CharacterInputController : MonoBehaviour {
 
     public RootMotionControlScript rootMotion;
 
+    public AudioSource audioSource;
+
+    public AudioClip moveSound;
+
     private void Awake()
     {
         gameControl = GameControl.GetInstance();
@@ -138,6 +142,7 @@ public class CharacterInputController : MonoBehaviour {
                 if (Input.GetKeyDown("f"))
                 {
                     other.GetComponentInParent<Animator>().SetBool("isPressed", true);
+                    audioSource.PlayOneShot(moveSound);
                 }
             }
         }

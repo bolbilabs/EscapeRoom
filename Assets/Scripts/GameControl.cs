@@ -13,6 +13,11 @@ public class GameControl : MonoBehaviour
     public Animator playerAnim;
     public Animator controllerAnim;
 
+    public AudioSource audioSource;
+    public AudioClip switchPlayer;
+    public AudioClip switchCamera;
+
+
 
     public Rigidbody playerRb;
     public Rigidbody cameraRb;
@@ -105,7 +110,7 @@ public class GameControl : MonoBehaviour
                     recordingAnim.SetBool("isPlayer", false);
                     playerAnim.SetBool("isCamera", true);
                     controllerAnim.SetBool("isCamera", true);
-
+                    audioSource.PlayOneShot(switchCamera);
                 }
                 else
                 {
@@ -117,6 +122,7 @@ public class GameControl : MonoBehaviour
                     recordingAnim.SetBool("isPlayer", true);
                     playerAnim.SetBool("isCamera", false);
                     controllerAnim.SetBool("isCamera", false);
+                    audioSource.PlayOneShot(switchPlayer);
 
 
                 }
